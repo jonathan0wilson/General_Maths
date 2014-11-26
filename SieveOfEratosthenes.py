@@ -1,16 +1,17 @@
 
-def Sieve(max):
-    numbers = list(range(2,max))
+def Sieve(limit):
+    primes = list(range(2,limit))
     
-    for num in numbers:
-        if not num:
+    for prime in primes:
+        if not prime:
             continue
-        notPrimes = range(num+num, max, num)
-        for nums in notPrimes:
-            # if (nums < 1000): 
-            numbers[nums - 2] = None
-    return numbers
+        for num in range(prime*prime, limit, prime):
+            primes[num - 2] = None
+    return primes
 
- 
-primes = [x for x in Sieve(1000) if x] 
-print(primes) 
+def main(): 
+    primes = [x for x in Sieve(1000) if x] 
+    print(primes)
+
+if __name__ == "__main__":
+    main()
