@@ -32,6 +32,17 @@ def Fibonacci(limit):
     return fibonacci
 
 
+def Reverse_Int(num):
+    """Returns the number reversed"""
+    newNum = 0
+
+    while num != 0:
+        newNum = (newNum * 10) + (num % 10)
+        num = num // 10
+
+    return num
+
+
 def main():
     primes = [x for x in Sieve_Of_Eratosthenes(1000) if x]
     print(primes)
