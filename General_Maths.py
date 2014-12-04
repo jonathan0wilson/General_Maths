@@ -13,7 +13,7 @@ def Sieve_Of_Eratosthenes(limit):
             continue
         for num in range(prime*prime, limit, prime):
             primes[num - 2] = None
-    return [x for x in Sieve_Of_Eratosthenes(1000) if x] 
+    return [x for x in primes if x] 
 
 
 
