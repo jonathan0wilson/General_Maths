@@ -40,13 +40,15 @@ def Reverse_Int(num):
         newNum = (newNum * 10) + (num % 10)
         num = num // 10
 
-    return num
+    return newNum
 
 
 def main():
     primes = [x for x in Sieve_Of_Eratosthenes(1000) if x]
     print(primes)
     print(Fibonacci(100))
+    print(Reverse_Int(123))
+
 
 if __name__ == "__main__":
     main()
