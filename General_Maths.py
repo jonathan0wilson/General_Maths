@@ -19,6 +19,10 @@ def Sieve_Of_Eratosthenes(limit):
 
 def Fibonacci(limit):
     """Returns Fibonacci sequence upto limit"""
+
+    if not isinstance(limit, int):
+        raise NotIntegerError('Non integer values not accepted')
+
     if limit < 1:
         raise OutOfRangeError('Invalid value. Input must be greater than 0')
 
@@ -53,9 +57,8 @@ def main():
     print(Reverse_Int(123))
 
 
-class OutOfRangeError(ValueError):
-
-    pass
+class OutOfRangeError(ValueError): pass
+class NotIntegerError(ValueError): pass
 
 
 if __name__ == "__main__":
