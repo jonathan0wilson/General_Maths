@@ -19,6 +19,9 @@ def Sieve_Of_Eratosthenes(limit):
 
 def Fibonacci(limit):
     """Returns Fibonacci sequence upto limit"""
+    if limit < 1:
+        raise OutOfRangeError('Invalid value. Input must be greater than 0')
+
     fibonacci = [1, 1]
 
     AtLimit = False
@@ -48,6 +51,11 @@ def main():
     print(primes)
     print(Fibonacci(100))
     print(Reverse_Int(123))
+
+
+class OutOfRangeError(ValueError):
+
+    pass
 
 
 if __name__ == "__main__":
