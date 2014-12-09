@@ -23,6 +23,13 @@ class test_stuff(unittest.TestCase):
         self.assertRaises(General_Maths.NotIntegerError,
                           General_Maths.Fibonacci, 0.5)
 
+    def test_reverse_number_with_123(self):
+        self.assertEqual(General_Maths.Reverse_Int(123), 321)
+
+
+    def test_reverse_number_with_non_integer(self):
+        self.assertRaises(General_Maths.NotIntegerError,
+                         General_Maths.Reverse_Int, 'a')
 
 if __name__ == '__main__':
     unittest.main()
