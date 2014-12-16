@@ -7,15 +7,50 @@ def Sieve_Of_Eratosthenes(limit):
     """Returns list of primes up to limit using
        Sieve of Eratosthenes
     """
-    primes = list(range(2, limit))
+    if not isinstance(limit, int):
+        raise NotIntegerError('Non integer values not accepted')
+
+    if limit < 2:
+        raise OutOfRangeError('Invalid value. Input must be greater than 1')
+
+    primes = list(range(2, limit + 1))
 
     for prime in primes:
         if not prime:
             continue
-        for num in range(prime*prime, limit, prime):
+        for num in range(prime*prime, limit + 1, prime):
             primes[num - 2] = None
+
     return [x for x in primes if x]
 
+
+def find_prime_factors(num):
+    """Finds the prime factors of a number
+       Returns a dict object containing all prime factors
+    """
+    if not isinstance(num, int):
+        raise NotIntegerError('Non integer values not allowed')
+
+    if num < 2:
+        raise OutOfRangeError('Invalid value. Input must be greater than 1')
+
+    primes = Sieve_Of_Eratosthenes(num)
+
+    factors = {}
+
+    if num in primes:
+        return {num: 1}
+
+    while num != 1:
+        for p in primes:
+            while num % p == 0:
+                if p in factors:
+                    factors[p] += 1
+                else:
+                    factors[p] = 1
+                num = num // p
+
+    return factors
 
 def Fibonacci(limit):
     """Returns Fibonacci sequence upto limit"""
