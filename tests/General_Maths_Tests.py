@@ -70,5 +70,6 @@ class test_stuff(unittest.TestCase):
         self.assertRaises(General_Maths.OutOfRangeError,
                           General_Maths.Reverse_Int, -1)
 
+
 if __name__ == '__main__':
     unittest.main()
