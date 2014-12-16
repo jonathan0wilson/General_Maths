@@ -41,8 +41,13 @@ def Fibonacci(limit):
 
 def Reverse_Int(num):
     """Returns the number reversed"""
+
     if not isinstance(num, int):
         raise NotIntegerError('Non integer values not accepted')
+
+    if num < 1:
+        raise OutOfRangeError('Invalid Value. Input must be greater than 0')
+
     newNum = 0
 
     while num != 0:
